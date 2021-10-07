@@ -13,6 +13,7 @@
     "@heroicons/vue": "^1.0.4",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/postcss7-compat": "^2.0.2",
+    "axios": "^0.22.0",
     "core-js": "^3.6.5",
     "headlessui": "*",
     "heroicons": "^1.0.4",

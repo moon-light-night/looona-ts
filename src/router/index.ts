@@ -8,16 +8,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Home.vue')
   },
   {
+    path: '/sign-up',
+    name: 'SignUp',
+    meta: { layout: 'empty' },
+    component: () => import('../views/SignUp.vue')
+  },
+  {
     path: '/sign-in',
     name: 'SignIn',
     meta: { layout: 'empty' },
     component: () => import('../views/SignIn.vue')
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    meta: { layout: 'empty' },
-    component: () => import('../views/Login.vue')
   },
   {
     path: '/about',
@@ -30,6 +30,18 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Contacts',
     meta: { layout: 'main' },
     component: () => import('../views/Contacts.vue')
+  },
+  {
+    path: '/documentation',
+    name: 'Documentation',
+    meta: { layout: 'main' },
+    component: () => import('../views/Documentation.vue')
+  },
+  {
+    path: '/looona',
+    name: 'Looona',
+    meta: { layout: 'main' },
+    component: () => import('../views/Looona.vue')
   }
 ]
 
