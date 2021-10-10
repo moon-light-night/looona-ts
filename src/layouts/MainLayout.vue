@@ -99,10 +99,10 @@
 
       <DisclosurePanel class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
+          <router-link
             v-for="item in navigation"
             :key="item.name"
-            :href="item.href"
+            :to="{name: item.href}"
             :class="[
               item.current
                 ? 'bg-gray-900 text-white'
@@ -110,7 +110,7 @@
               'block px-3 py-2 rounded-md text-base font-medium',
             ]"
             :aria-current="item.current ? 'page' : undefined"
-            >{{ item.name }}</a
+            >{{ item.name }}</router-link
           >
         </div>
         <div class="pt-4 pb-3 border-t border-gray-700">

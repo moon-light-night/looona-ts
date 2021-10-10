@@ -8,11 +8,11 @@
         </p>
         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
           In order to go to the site, you need to click once on the
-          <code><b>Ask Looona</b></code> and confirm the permission to use the
+          <b>Ask Looona</b> and confirm the permission to use the
           microphone in the browser and say for example
           <code><b>"Looona go to finviz.com"</b></code> or
           <code
-            ><b>"Луна, перейди на <i>финвиз дот ком</i>"</b></code
+            ><b>"Луна, перейди на финвиз дот ком"</b></code
           >.
           <b
             >It's necessary to pronounce the words loudly, clearly and with an
@@ -20,14 +20,10 @@
           >
           The current feature currently supports certain phrases for
           pronunciation. You should to click once on
-          <code><b>Utter by Looona</b></code> then once on
-          <code><b>Ask Looona</b></code> and say the phrase. If you manage to
+          <b>Utter by Looona</b>. If you manage to
           get into the desired phrase - congratulations＼(￣▽￣)／ the full list
           of phrases is periodically updated and you can find out from the
-          developer of this service by contacting him through the
-          <code @click="$router.push({ name: 'Contacts' })"
-            ><a class="links">contacts</a></code
-          >
+          developer of this service by contacting him through the contacts.
         </p>
       </div>
     </div>

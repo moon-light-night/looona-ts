@@ -7,7 +7,7 @@
           Voice assistent Looona version 1.2
         </p>
         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-          Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+          About service
         </p>
       </div>
 
@@ -36,27 +36,28 @@ import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@her
 
 const features = [
   {
-    name: 'Competitive exchange rates',
+    name: 'Cross-platform',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'This service is free and cross-platform as it works when connected to the network.',
     icon: GlobeAltIcon,
   },
   {
-    name: 'No hidden fees',
+    name: 'Safety',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      'The service uses authorization by JWT Token. Customers data is well protected by encryption algorithms.',
     icon: ScaleIcon,
   },
   {
-    name: 'Transfers are instant',
+    name: 'Developers support',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      `As the project develops, new features will be added. For assistance in project support or suggestions for improvement, application modernization,
+      you can contact the developer by contacts.`,
     icon: LightningBoltIcon,
   },
   {
-    name: 'Mobile notifications',
+    name: 'Browser support',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+        'Remind you that for the speech recognizer to work correctly, you should only use the latest version of the Google Chrome or Opera.',
     icon: AnnotationIcon,
   },
 ]
