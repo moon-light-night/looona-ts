@@ -89,6 +89,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { store } from '@/store'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 
@@ -106,6 +107,9 @@ export default defineComponent({
     PopoverPanel,
     MenuIcon,
     XIcon
+  },
+  mounted() {
+    store.dispatch('getUser')
   },
   setup() {
     return {

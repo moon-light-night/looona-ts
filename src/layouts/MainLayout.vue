@@ -68,17 +68,15 @@
                     class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
                     <MenuItem
-                      v-for="item in userNavigation"
-                      :key="item.name"
                       v-slot="{ active }"
                     >
-                      <a
-                        :href="item.href"
+                      <p
+                        @click="logout"
                         :class="[
                           active ? 'bg-gray-100' : '',
                           'block px-4 py-2 text-sm text-gray-700',
                         ]"
-                        >{{ item.name }}</a
+                        >Sign out</p
                       >
                     </MenuItem>
                   </MenuItems>
@@ -137,13 +135,11 @@
             </button>
           </div>
           <div class="mt-3 px-2 space-y-1">
-            <router-link
-              v-for="item in userNavigation"
-              :key="item.name"
-              :to="{name: item.href}"
+            <p
+              @click="logout"
               class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-              >{{ item.name }}
-            </router-link>
+              >Sign out
+            </p>
           </div>
         </div>
       </DisclosurePanel>
@@ -171,6 +167,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { store } from '@/store'
 import {
   Disclosure,
   DisclosureButton,
@@ -194,8 +191,6 @@ const navigation = [
   { name: 'Contacts', href: 'Contacts', current: false }
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: 'Home' },
-  { name: 'Settings', href: 'Home' },
   { name: 'Sign out', href: 'SignIn' }
 ]
 
@@ -218,6 +213,11 @@ export default defineComponent({
       user,
       navigation,
       userNavigation
+    }
+  },
+  methods: {
+    logout(): void {
+      store.dispatch('logout')
     }
   }
 })

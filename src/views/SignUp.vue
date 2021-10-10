@@ -70,7 +70,6 @@ import { defineComponent } from 'vue'
 import { LockClosedIcon } from '@heroicons/vue/solid'
 import { store } from '@/store'
 import { User } from '@/store/state'
-// import  router from '@/router'
 
 export default defineComponent({
   name: 'SignUp',

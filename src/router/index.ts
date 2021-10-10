@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { store } from '@/store'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -48,6 +49,16 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((from, to, next) => {
+    if (from.name === 'SignIn' || from.name === 'SignUp') {
+    next()
+  } else if (!store.getters.getToken) {
+    router.push({ name: 'SignIn'})
+  } else {
+    next()
+  }
 })
 
 export default router
