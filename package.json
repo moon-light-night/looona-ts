@@ -15,6 +15,7 @@
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "axios": "^0.22.0",
     "core-js": "^3.6.5",
+    "firebase": "^9.1.2",
     "headlessui": "*",
     "heroicons": "^1.0.4",
     "vue": "^3.0.0",

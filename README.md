@@ -1,9 +1,9 @@
 # looona-ts
 
-## Project setup
-```
-npm install
-```
+## Project view
+``
+https://looona-front.web.app
+``
 
 ### Compiles and hot-reloads for development
 ```
