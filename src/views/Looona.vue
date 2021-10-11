@@ -18,6 +18,7 @@
       Example: Луна, давай Лермонтова
     </p>
   </div>
+  <p id="result"></p>
   </div>
 </template>
 
@@ -32,6 +33,7 @@ export default {
     utterance: null,
     arr: null,
     lastIndex: null,
+    currentResult: ''
   }),
   created() {
     this.recognizer = new window.webkitSpeechRecognition()
@@ -49,15 +51,22 @@ export default {
       this.recognizer.onresult = function(event) {
         this.result = event.results[event.resultIndex]
         this.arr = this.result[0].transcript.split(' ')
-        console.log(this.arr)
+        document.getElementById('result').innerHTML = this.result[0].transcript
         this.lastIndex = this.arr[this.arr.length - 1]
         window.open(`http://www.${this.lastIndex}`, '_blank')
+        setTimeout(() => {
+          document.getElementById('result').innerHTML = ''
+        }, 5000)
       }
     },
     talk() {
       this.recognizer.start()
       this.recognizer.onresult = function(event) {
         this.result = event.results[event.resultIndex]
+        document.getElementById('result').innerHTML = this.result[0].transcript
+        setTimeout(() => {
+          document.getElementById('result').innerHTML = ''
+        }, 5000)
         if (
           this.result.isFinal &&
           this.result[0].transcript.toLowerCase() == 'луна привет'

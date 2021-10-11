@@ -167,7 +167,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { store } from '@/store'
+import { useStore } from 'vuex'
 import {
   Disclosure,
   DisclosureButton,
@@ -178,21 +178,6 @@ import {
   MenuItems
 } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-
-const user = {
-  name: 'Username',
-  email: 'user@example.com',
-  imageUrl: 'https://img.icons8.com/color/96/000000/alien.png'
-}
-const navigation = [
-  { name: 'Looona', href: 'Looona', current: false },
-  { name: 'Documentation', href: 'Documentation', current: false },
-  { name: 'About', href: 'About', current: false },
-  { name: 'Contacts', href: 'Contacts', current: false }
-]
-const userNavigation = [
-  { name: 'Sign out', href: 'SignIn' }
-]
 
 export default defineComponent({
   name: 'MainLayout',
@@ -209,15 +194,30 @@ export default defineComponent({
     XIcon
   },
   setup() {
+    const store = useStore()
+
+    const user = {
+      name: 'Username',
+      email: 'user@example.com',
+      imageUrl: 'https://img.icons8.com/color/96/000000/alien.png'
+    }
+    const navigation = [
+      { name: 'Looona', href: 'Looona', current: false },
+      { name: 'Documentation', href: 'Documentation', current: false },
+      { name: 'About', href: 'About', current: false },
+      { name: 'Contacts', href: 'Contacts', current: false }
+    ]
+    const userNavigation = [
+      { name: 'Sign out', href: 'SignIn' }
+    ]
+
+    const logout = (): Promise<any> => store.dispatch('logout')
+
     return {
       user,
       navigation,
-      userNavigation
-    }
-  },
-  methods: {
-    logout(): void {
-      store.dispatch('logout')
+      userNavigation,
+      logout
     }
   }
 })
