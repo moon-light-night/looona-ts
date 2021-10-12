@@ -18,7 +18,7 @@
                 <router-link
                   v-for="item in navigation"
                   :key="item.name"
-                  :to="{name: item.href}"
+                  :to="{name: item.name}"
                   :class="[
                     item.current
                       ? 'bg-gray-900 text-white'
@@ -102,7 +102,7 @@
           <router-link
             v-for="item in navigation"
             :key="item.name"
-            :to="{name: item.href}"
+            :to="{name: item.name}"
             :class="[
               item.current
                 ? 'bg-gray-900 text-white'
@@ -202,10 +202,10 @@ export default defineComponent({
       imageUrl: 'https://img.icons8.com/color/96/000000/alien.png'
     }
     const navigation = [
-      { name: 'Looona', href: 'Looona', current: false },
-      { name: 'Documentation', href: 'Documentation', current: false },
-      { name: 'About', href: 'About', current: false },
-      { name: 'Contacts', href: 'Contacts', current: false }
+      { name: 'Looona', current: false },
+      { name: 'Documentation', current: false },
+      { name: 'About', current: false },
+      { name: 'Contacts', current: false }
     ]
     const userNavigation = [
       { name: 'Sign out', href: 'SignIn' }

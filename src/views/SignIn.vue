@@ -109,7 +109,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref, computed, onMounted } from 'vue'
 import { LockClosedIcon } from '@heroicons/vue/solid'
 import { store } from '@/store'
 import { User } from '@/store/state'
@@ -119,22 +119,20 @@ export default defineComponent({
   components: {
     LockClosedIcon,
   },
-  data: () => ({
-    user: {} as User,
-    animateSpin: false,
-  }),
-  computed: {
-    fillFields() {
-      return !!(this.user.password && this.user.username)
-    },
-  },
-  mounted() {
-    this.animateSpin = false
-  },
-  methods: {
-    login(): void {
-      store.dispatch('login', this.user)
-    },
-  },
+  setup() {
+    const user = ref({} as User)
+    const animateSpin = ref(false)
+    const fillFields = computed(() => {
+      return !!(user.value.password && user.value.username)
+    })
+
+    onMounted(() => {
+      animateSpin.value = false
+    })
+
+    const login = (): Promise<any> => store.dispatch('login', user.value)
+
+    return { user, animateSpin, fillFields, login}
+  }
 })
 </script>
