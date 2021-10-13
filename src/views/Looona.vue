@@ -24,106 +24,21 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, onMounted,  } from 'vue'
-import { store } from '@/store'
-import phrases from '../models/Utterances'
 import speakRecognation from '../models/LooonaModel'
 
 export default defineComponent({
   name: 'SignUp',
   setup() {
-    const recogn: speakRecognation = new speakRecognation()
+    const recognizer: speakRecognation = new speakRecognation()
 
     const speech = () => {
-      recogn.speech()
+      recognizer.speech()
+    }
+    const talk = () => {
+      recognizer.talk()
     }
 
-    return {speech}
+    return {speech, talk}
   }
 })
-
-// export default {
-//   data: () => ({
-//     recognizer: null,
-//     result: null,
-//     synth: null,
-//     utterance: null,
-//     arr: null,
-//     lastIndex: null,
-//     currentResult: ''
-//   }),
-//   created() {
-//     this.recognizer = new window.webkitSpeechRecognition()
-//     this.recognizer.interimResults = false
-//   },
-//   unmounted() {
-//     this.recognizer = null
-//     this.arr = null
-//     this.lastIndex = null
-//     this.result = null
-//   },
-//   methods: {
-//     speech() {
-//       this.recognizer.start()
-//       this.recognizer.onresult = function(event) {
-//         this.result = event.results[event.resultIndex]
-//         this.arr = this.result[0].transcript.split(' ')
-//         document.getElementById('result').innerHTML = this.result[0].transcript
-//         this.lastIndex = this.arr[this.arr.length - 1]
-//         window.open(`http://www.${this.lastIndex}`, '_blank')
-//         setTimeout(() => {
-//           document.getElementById('result').innerHTML = ''
-//         }, 5000)
-//       }
-//     },
-//     talk() {
-//       this.recognizer.start()
-//       this.recognizer.onresult = function(event) {
-//         this.result = event.results[event.resultIndex]
-//         document.getElementById('result').innerHTML = this.result[0].transcript
-//         setTimeout(() => {
-//           document.getElementById('result').innerHTML = ''
-//         }, 5000)
-//         if (
-//           this.result.isFinal &&
-//           this.result[0].transcript.toLowerCase() == 'луна привет'
-//         ) {
-//           this.synth = window.speechSynthesis
-//           this.utterance = new SpeechSynthesisUtterance(phrases.hello)
-//           this.synth.speak(this.utterance)
-//         }
-//         else {
-//           console.log(
-//             'Промежуточный результат: ',
-//             this.result[0].transcript.toLowerCase()
-//           )
-//         }
-//         if (
-//           this.result.isFinal &&
-//           this.result[0].transcript.toLowerCase() == 'луна давай лермонтова'
-//         ) {
-//           this.synth = window.speechSynthesis
-//           this.utterance = new SpeechSynthesisUtterance(phrases.lermontov)
-//           this.synth.speak(this.utterance)
-//         }
-//         if (
-//           this.result.isFinal &&
-//           this.result[0].transcript.toLowerCase() == 'луна давай мачете'
-//         ) {
-//           this.synth = window.speechSynthesis
-//           this.utterance = new SpeechSynthesisUtterance(phrases.machete)
-//           this.synth.speak(this.utterance)
-//         }
-//         if (
-//           this.result.isFinal &&
-//           this.result[0].transcript.toLowerCase() == 'луна ты всего лишь браузерный скрипт' ||
-//           this.result[0].transcript.toLowerCase() == 'луна ты всего-лишь браузерный скрипт'
-//         ) {
-//           this.synth = window.speechSynthesis
-//           this.utterance = new SpeechSynthesisUtterance(phrases.serzh)
-//           this.synth.speak(this.utterance)
-//         }
-//       }
-//     },
-//   },
-//}
 </script>
